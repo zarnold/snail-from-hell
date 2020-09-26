@@ -32,5 +32,7 @@ ax.set_xticklabels(['Lundi', 'Mardi', 'Mercredi', 'Jeudi',
                     'Vendredi', 'Samedi', 'Dimanche'])
 
 
+# save as "latest"
+plt.savefig(join(LATEST_PATH, 'latest.png'))
 # Save as latest
 plt.show()

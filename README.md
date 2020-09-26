@@ -81,3 +81,8 @@ git pull --rebase origin master
 git push origin master
 ```
 > note to dev : Tis is obviously not good practice but git is tricky for beginner so please dont be an a***ole
+
+
+## The last result
+
+![latest result](/results/archives/latest.png)
