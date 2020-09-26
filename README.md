@@ -85,4 +85,4 @@ git push origin master
 
 ## The last result
 
-![latest result](/results/archives/latest.png)
+![latest result](results/latest/latest.png)
