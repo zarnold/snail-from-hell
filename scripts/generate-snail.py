@@ -4,6 +4,7 @@ import pylab as plt
 from os.path import join
 from time import gmtime, strftime
 
+plt.style.use("fivethirtyeight")
 # please use the join functon to avoid os path separator issue
 DATA_SRC = join('data', 'csv', 'snail_data.csv')
 RESULT_PATH = join('results')
@@ -28,6 +29,8 @@ df['dow_angle'] = df['dow'] * (2 * np.pi / 7)
 ax = plt.subplot(111, polar=True)
 ax.plot(df['dow_angle'], df['value'], linewidth=1, linestyle='solid')
 
+pos=ax.get_rlabel_position()
+ax.set_rlabel_position(pos+7)
 ax.set_xticks(2*np.pi*np.linspace(0, 6, 7)/7)
 ax.set_xticklabels(['Lundi', 'Mardi', 'Mercredi', 'Jeudi',
                     'Vendredi', 'Samedi', 'Dimanche'])
