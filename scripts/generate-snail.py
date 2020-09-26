@@ -1,22 +1,36 @@
 import numpy as np
 import pandas as pd
-import seaborn as sns
 import pylab as plt
+from os.path import join
 
-sns.set_theme(context='paper', style='whitegrid', palette='flare')
+# please use the join functon to avoid os path separator issue
+DATA_SRC = join('data', 'csv', 'data.csv')
+RESULT_PATH = join('results')
+LATEST_PATH = join(RESULT_PATH,'latest')
+ARCHIVES_PATH = join(RESULT_PATH,'archives')
+# if you're not french, change this
+SEP = ";"
 
-# Generate an example radial datast
-r = np.linspace(0, 10, num=100)
-df = pd.DataFrame({'r': r, 'slow': r, 'medium': 2 * r, 'fast': 4 * r})
 
-# Convert the dataframe to long-form or "tidy" format
-df = pd.melt(df, id_vars=['r'], var_name='speed', value_name='theta')
+# Read the datas
+# we supose french user so day is first in most of case
+# change this if you work with US data
+df = pd.read_csv(DATA_SRC, sep=SEP, index_col="date",
+                 parse_dates=True, infer_datetime_format=True, dayfirst=True)
 
-# Set up a grid of axes with a polar projection
-g = sns.FacetGrid(df, col="speed", hue="speed",
-                  subplot_kws=dict(projection='polar'), height=4.5,
-                  sharex=False, sharey=False, despine=False)
+# add the day of week number
+# Note that "lundi" is 0
+df['dow'] = df.index.dayofweek
+df['dow_angle'] = df['dow'] * (2 * np.pi / 7)
 
-# Draw a scatterplot onto each axes in the grid
-g.map(sns.scatterplot, "theta", "r")
+
+ax = plt.subplot(111, polar=True)
+ax.plot(df['dow_angle'], df['value'], linewidth=1, linestyle='solid')
+
+ax.set_xticks(2*np.pi*np.linspace(0, 6, 7)/7)
+ax.set_xticklabels(['Lundi', 'Mardi', 'Mercredi', 'Jeudi',
+                    'Vendredi', 'Samedi', 'Dimanche'])
+
+
+# Save as latest
 plt.show()
