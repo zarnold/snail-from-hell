@@ -5,7 +5,7 @@ from os.path import join
 from time import gmtime, strftime
 
 # please use the join functon to avoid os path separator issue
-DATA_SRC = join('data', 'csv', 'data.csv')
+DATA_SRC = join('data', 'csv', 'snail_data.csv')
 RESULT_PATH = join('results')
 LATEST_PATH = join(RESULT_PATH,'latest')
 ARCHIVES_PATH = join(RESULT_PATH,'archives')

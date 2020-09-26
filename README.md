@@ -49,9 +49,9 @@ python scripts/test-my-setup.py  # Test your setup. You should get a nice spiral
 
 ## Usage
 
-Each scripts should provide a helpme command but anyway, here some help :
+Each scripts should provide a helpme command but anyway, here some help if you wanna edit your snail:
 
-1. Edit the "data/csv/data.csv" file with your data ( you can use excel)
+1. Edit the "data/csv/snail_data.csv" file with your data ( you can use excel)
 2. Launch `python scripts/generate-snail.py` from the root of your project
 3. Close the image that is presented to you
 4. Grab your result in the results/latest/ folder ( and in the results/arhives)
@@ -59,16 +59,16 @@ Each scripts should provide a helpme command but anyway, here some help :
 
 ### Troubleshooting
 
-In most of case issue will arise from date encoding, oudated package or encoding. Refer to a technical friend for help as it s oftne tricky to deal with that.
+In most of case issue will arise from date encoding, outdated package or encoding. Refer to a technical friend for help as it s often  tricky to deal with that.
 
-## Publishing
+## Publishing my changes
 
 If you made some change to any file, for example data/csv/data.csv, and want to  put it to the open source git repository, do it with this commands :
 
 ```
-git pull --rebase origin master
 git add <MY_FILE>
 git commit -m " a message to everybody to convey you my intention"
+git pull --rebase origin master
 git push origin master
 ```
 
@@ -80,7 +80,7 @@ git commit -m " a message to everybody to convey you my intention"
 git pull --rebase origin master
 git push origin master
 ```
-> note to dev : Tis is obviously not good practice but git is tricky for beginner so please dont be an a***ole
+> note to dev : This is obviously not good practice but git is tricky for beginner so please dont be an a***ole
 
 
 ## The last result
