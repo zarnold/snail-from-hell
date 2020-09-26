@@ -72,4 +72,12 @@ git commit -m " a message to everybody to convey you my intention"
 git push origin master
 ```
 
+Example with the data file :
+
+```
+git add data/csv/data.csv
+git commit -m " a message to everybody to convey you my intention"
+git pull --rebase origin master
+git push origin master
+```
 > note to dev : Tis is obviously not good practice but git is tricky for beginner so please dont be an a***ole
