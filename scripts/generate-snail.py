@@ -3,8 +3,7 @@ import pandas as pd
 import pylab as plt
 from os.path import join
 from time import gmtime, strftime
-timestamp = strftime("%Y-%m-%d", gmtime())
-print(timestamp)
+
 # please use the join functon to avoid os path separator issue
 DATA_SRC = join('data', 'csv', 'data.csv')
 RESULT_PATH = join('results')
@@ -37,5 +36,7 @@ ax.set_xticklabels(['Lundi', 'Mardi', 'Mercredi', 'Jeudi',
 # save as "latest"
 plt.savefig(join(LATEST_PATH, 'latest.png'))
 # save with timestamp
+timestamp = "snail_at_{}.png".format(strftime("%Y%m%d", gmtime()))
+plt.savefig(join(ARCHIVES_PATH, timestamp))
 # Save as latest
 plt.show()
